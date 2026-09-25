@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Honey Buy — Affordable Beauty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f9d9e4; --pink-deep:#e8a9c3;
+  --lavender:#e6dcf6; --lavender-deep:#c6aee8;
+  --sage:#dcefdd; --butter:#fbeecb;
+  --burgundy:#8c4a5d; --brown:#6b4a3a;
+  --ink:#4a2f36; --paper:#fffaf6; --card:#ffffff;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Quicksand',sans-serif;background:var(--paper);color:var(--ink);}
+h1,h2,h3,.logo{font-family:'Fraunces',serif;}
+img,svg{max-width:100%;}
+a{color:inherit;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+/* header */
+header{background:linear-gradient(180deg,var(--pink) 0%, var(--paper) 100%); padding:18px 0 10px; text-align:center;}
+.quote{font-family:'Fraunces',serif;font-style:italic;font-size:0.95rem;color:var(--burgundy);margin:0 0 6px;}
+.logo{font-size:2.1rem;font-weight:600;color:var(--brown);margin:0;letter-spacing:.5px;}
+.logo span{color:var(--burgundy);}
+.tagline{font-size:.85rem;color:var(--ink);opacity:.75;margin:2px 0 14px;}
+nav.cats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:0 12px;}
+nav.cats button{border:1px solid var(--pink-deep);background:var(--card);color:var(--brown);padding:7px 16px;border-radius:20px;font:inherit;font-weight:600;font-size:.85rem;cursor:pointer;transition:transform .15s;}
+nav.cats button:hover{transform:translateY(-2px);}
+nav.cats button.active{background:var(--burgundy);color:#fff;border-color:var(--burgundy);}
+
+/* hero */
+.hero{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding:36px 0;}
+.hero-text{flex:1;min-width:260px;}
+.hero-text h2{font-size:1.9rem;color:var(--brown);margin:0 0 10px;line-height:1.25;}
+.hero-text p{color:var(--ink);opacity:.8;max-width:46ch;}
+.heart-btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  width:180px;height:150px;background:var(--pink-deep);
+  clip-path:path("M90,150 C10,95 0,55 25,30 C45,10 75,15 90,45 C105,15 135,10 155,30 C180,55 170,95 90,150 Z");
+  border:none;cursor:pointer;color:#fff;font-weight:700;font-family:'Quicksand';font-size:.9rem;
+  transition:transform .15s;padding:0 30px;
+}
+.heart-btn:hover{transform:scale(1.05);}
+.hero-offer{flex:1;min-width:240px;background:var(--sage);border-radius:22px;padding:22px;text-align:center;}
+.hero-offer .pct{font-family:'Fraunces';font-size:2.2rem;color:var(--burgundy);margin:0;}
+.hero-offer p{margin:4px 0 0;color:var(--ink);opacity:.8;}
+
+/* budget picks */
+.budget-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:6px 0 30px;}
+.budget-pill{background:var(--butter);border:none;border-radius:16px;padding:14px 22px;font-family:'Fraunces';font-weight:600;color:var(--brown);cursor:pointer;font-size:.95rem;box-shadow:0 3px 0 var(--pink-deep);transition:transform .1s;}
+.budget-pill:hover{transform:translateY(-2px);}
+.budget-pill.active{background:var(--lavender-deep);color:#fff;box-shadow:0 3px 0 var(--burgundy);}
+
+/* controls */
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #f0e2e8;border-bottom:1px solid #f0e2e8;margin-bottom:22px;}
+.controls input, .controls select{font:inherit;padding:8px 12px;border-radius:12px;border:1px solid var(--pink-deep);background:#fff;color:var(--ink);}
+.controls input{flex:1;min-width:160px;}
+.section-title{font-size:1.3rem;color:var(--brown);margin:0 0 14px;}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;margin-bottom:40px;}
+.card{background:var(--card);border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(140,74,93,.08);display:flex;flex-direction:column;gap:6px;}
+.thumb{aspect-ratio:1;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;}
+.card h4{margin:2px 0 0;font-size:.95rem;font-family:'Quicksand';font-weight:700;color:var(--brown);}
+.cat-tag{font-size:.7rem;color:var(--burgundy);opacity:.7;}
+.price-row{display:flex;align-items:baseline;gap:8px;}
+.price-now{font-weight:700;color:var(--burgundy);}
+.price-old{font-size:.8rem;text-decoration:line-through;color:#a9a9a9;}
+.disc{font-size:.75rem;color:#4e8a5f;font-weight:700;}
+.rating{font-size:.8rem;color:#c99a2d;}
+.card-actions{display:flex;gap:6px;margin-top:6px;}
+.card-actions button{flex:1;border:none;border-radius:10px;padding:8px 6px;font:inherit;font-weight:700;font-size:.8rem;cursor:pointer;}
+.btn-cart{background:var(--burgundy);color:#fff;}
+.btn-wish{background:var(--pink);color:var(--burgundy);width:38px;flex:none;font-size:1rem;}
+.btn-wish.on{background:var(--pink-deep);}
+
+/* floating dock */
+.dock{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px;z-index:50;}
+.dock button{width:52px;height:52px;border-radius:50%;border:none;background:var(--card);box-shadow:0 4px 12px rgba(140,74,93,.25);font-size:1.25rem;cursor:pointer;position:relative;color:var(--burgundy);}
+.dock button .badge{position:absolute;top:-4px;right:-4px;background:var(--burgundy);color:#fff;font-size:.65rem;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;}
+
+/* panel */
+.overlay{position:fixed;inset:0;background:rgba(74,47,54,.35);display:none;align-items:flex-end;justify-content:flex-end;z-index:60;}
+.overlay.show{display:flex;}
+.panel{background:var(--paper);width:min(360px,100%);height:100%;padding:20px;overflow-y:auto;box-shadow:-6px 0 20px rgba(0,0,0,.1);}
+.panel h3{color:var(--brown);margin-top:0;}
+.panel .close{float:right;border:none;background:none;font-size:1.3rem;cursor:pointer;color:var(--burgundy);}
+.pline{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed #eddbe1;font-size:.9rem;}
+.pline button{border:none;background:var(--pink);color:var(--burgundy);border-radius:8px;padding:4px 8px;cursor:pointer;font-weight:700;}
+.total{display:flex;justify-content:space-between;font-weight:700;color:var(--burgundy);padding:14px 0;}
+.checkout-btn{width:100%;background:var(--burgundy);color:#fff;border:none;padding:12px;border-radius:14px;font:inherit;font-weight:700;cursor:pointer;}
+.about-text{font-size:.9rem;line-height:1.6;color:var(--ink);}
+.empty{opacity:.6;font-size:.85rem;padding:20px 0;text-align:center;}
+
+footer{background:var(--brown);color:var(--paper);text-align:center;padding:24px 12px;font-size:.85rem;margin-top:20px;}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#241a1d;--card:#2f2226;--ink:#f3e7ea;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="quote">"Glow More, Spend Less"</p>
+  <h1 class="logo">Honey<span>Buy</span></h1>
+  <p class="tagline">Affordable skincare · haircare · makeup · perfumes · bodycare</p>
+  <nav class="cats" id="catNav"></nav>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Beauty that fits your budget,<br>not the other way around.</h2>
+      <p>Real ingredients, honest prices — everything under ₹1949, most under ₹449.</p>
+      <button class="heart-btn" onclick="document.getElementById('shopGrid').scrollIntoView()">Shop Affordable<br>Products</button>
+    </div>
+    <div class="hero-offer">
+      <p class="pct">10%–60% OFF</p>
+      <p>on skincare, makeup, haircare, perfumes & bodycare — all week</p>
+    </div>
+  </section>
+
+  <div class="budget-row" id="budgetRow"></div>
+
+  <div class="controls">
+    <input id="searchBox" placeholder="Search products…" oninput="render()">
+    <select id="sortBox" onchange="render()">
+      <option value="">Sort by</option>
+      <option value="priceAsc">Price: Low to High</option>
+      <option value="priceDesc">Price: High to Low</option>
+      <option value="rating">Rating</option>
+    </select>
+  </div>
+
+  <h3 class="section-title" id="shopGrid">Shop the collection</h3>
+  <div class="grid" id="grid"></div>
+</div>
+
+<footer>Honey Buy · Affordable beauty for everyone · Made with 🩷</footer>
+
+<div class="dock">
+  <button onclick="openPanel('about')">ℹ️</button>
+  <button onclick="openPanel('wishlist')">🤍<span class="badge" id="wishBadge" style="display:none">0</span></button>
+  <button onclick="openPanel('cart')">🛍️<span class="badge" id="cartBadge" style="display:none">0</span></button>
+  <button onclick="document.getElementById('searchBox').scrollIntoView({behavior:'smooth'});document.getElementById('searchBox').focus()">🔍</button>
+</div>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closePanel()">
+  <div class="panel" id="panel"></div>
+</div>
+
+<script>
+const CATS = ["All","Skincare","Makeup","Haircare","Perfumes","Bodycare"];
+const ICONS = {Skincare:"🧴",Makeup:"💄",Haircare:"🧖‍♀️",Perfumes:"🌸",Bodycare:"🛁"};
+const BUDGETS = [
+  {label:"Under ₹149",max:149},
+  {label:"Under ₹249",max:249},
+  {label:"Under ₹449",max:449},
+];
+
+const PRODUCTS = [
+  {id:1,name:"Rosewater Glow Toner",cat:"Skincare",price:129,old:249,rating:4.4},
+  {id:2,name:"Aloe Soothing Gel",cat:"Skincare",price:99,old:180,rating:4.6},
+  {id:3,name:"Vitamin C Serum",cat:"Skincare",price:349,old:699,rating:4.5},
+  {id:4,name:"Charcoal Face Wash",cat:"Skincare",price:145,old:220,rating:4.2},
+  {id:5,name:"Matte Liquid Lipstick",cat:"Makeup",price:199,old:399,rating:4.3},
+  {id:6,name:"Compact Powder",cat:"Makeup",price:229,old:450,rating:4.1},
+  {id:7,name:"Kajal Twin Pack",cat:"Makeup",price:89,old:150,rating:4.5},
+  {id:8,name:"Everyday Eyeshadow Palette",cat:"Makeup",price:399,old:799,rating:4.4},
+  {id:9,name:"Argan Hair Oil",cat:"Haircare",price:179,old:299,rating:4.6},
+  {id:10,name:"Onion Shampoo 200ml",cat:"Haircare",price:189,old:349,rating:4.3},
+  {id:11,name:"Hair Fall Control Serum",cat:"Haircare",price:249,old:499,rating:4.2},
+  {id:12,name:"Silk Hair Mask",cat:"Haircare",price:229,old:399,rating:4.4},
+  {id:13,name:"Blossom Body Mist",cat:"Perfumes",price:249,old:499,rating:4.5},
+  {id:14,name:"Musk Eau de Parfum",cat:"Perfumes",price:449,old:899,rating:4.6},
+  {id:15,name:"Citrus Cologne Mini",cat:"Perfumes",price:129,old:249,rating:4.0},
+  {id:16,name:"Shea Body Butter",cat:"Bodycare",price:199,old:349,rating:4.5},
+  {id:17,name:"Coffee Body Scrub",cat:"Bodycare",price:179,old:299,rating:4.3},
+  {id:18,name:"Cocoa Hand Cream",cat:"Bodycare",price:99,old:179,rating:4.2},
+];
+
+let state = {cat:"All", budget:null, search:"", sort:"", cart:{}, wish:{}};
+
+function pct(p,o){return Math.round((1-p/o)*100);}
+
+function buildNav(){
+  const nav = document.getElementById("catNav");
+  nav.innerHTML = CATS.map(c=>`<button data-c="${c}" class="${c===state.cat?'active':''}">${c}</button>`).join("");
+  nav.querySelectorAll("button").forEach(b=>b.onclick=()=>{state.cat=b.dataset.c;buildNav();render();});
+
+  const brow = document.getElementById("budgetRow");
+  brow.innerHTML = `<button class="budget-pill ${!state.budget?'active':''}" id="bAll">All Prices</button>` +
+    BUDGETS.map(b=>`<button class="budget-pill ${state.budget===b.max?'active':''}" data-m="${b.max}">${b.label}</button>`).join("");
+  brow.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{state.budget = state.budget===+b.dataset.m ? null : +b.dataset.m; buildNav(); render();});
+  document.getElementById("bAll").onclick=()=>{state.budget=null;buildNav();render();};
+}
+
+function render(){
+  state.search = document.getElementById("searchBox").value.toLowerCase();
+  state.sort = document.getElementById("sortBox").value;
+  let list = PRODUCTS.filter(p=>
+    (state.cat==="All"||p.cat===state.cat) &&
+    (!state.budget || p.price<=state.budget) &&
+    p.name.toLowerCase().includes(state.search)
+  );
+  if(state.sort==="priceAsc") list.sort((a,b)=>a.price-b.price);
+  if(state.sort==="priceDesc") list.sort((a,b)=>b.price-a.price);
+  if(state.sort==="rating") list.sort((a,b)=>b.rating-a.rating);
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = list.length ? list.map(cardHTML).join("") : `<p class="empty">No products match — try another filter.</p>`;
+  updateBadges();
+}
+
+function cardHTML(p){
+  const bg = {Skincare:"var(--sage)",Makeup:"var(--pink)",Haircare:"var(--butter)",Perfumes:"var(--lavender)",Bodycare:"var(--pink)"}[p.cat];
+  const wished = !!state.wish[p.id];
+  return `<div class="card">
+    <div class="thumb" style="background:${bg}">${ICONS[p.cat]}</div>
+    <span class="cat-tag">${p.cat}</span>
+    <h4>${p.name}</h4>
+    <div class="price-row"><span class="price-now">₹${p.price}</span><span class="price-old">₹${p.old}</span><span class="disc">${pct(p.price,p.old)}% off</span></div>
+    <span class="rating">⭐ ${p.rating}</span>
+    <div class="card-actions">
+      <button class="btn-wish ${wished?'on':''}" onclick="toggleWish(${p.id})">🤍</button>
+      <button class="btn-cart" onclick="addCart(${p.id})">Add to Cart</button>
+    </div>
+  </div>`;
+}
+
+function toggleWish(id){ if(state.wish[id]) delete state.wish[id]; else state.wish[id]=true; render(); }
+function addCart(id){ state.cart[id]=(state.cart[id]||0)+1; updateBadges(); if(document.getElementById('panel').dataset.open==='cart') openPanel('cart'); }
+
+function updateBadges(){
+  const cartN = Object.values(state.cart).reduce((a,b)=>a+b,0);
+  const wishN = Object.keys(state.wish).length;
+  const cb = document.getElementById("cartBadge"), wb = document.getElementById("wishBadge");
+  cb.textContent=cartN; cb.style.display = cartN? "flex":"none";
+  wb.textContent=wishN; wb.style.display = wishN? "flex":"none";
+}
+
+function openPanel(kind){
+  const panel = document.getElementById("panel");
+  panel.dataset.open = kind;
+  if(kind==="about"){
+    panel.innerHTML = `<button class="close" onclick="closePanel()">✕</button>
+    <h3>About Honey Buy</h3>
+    <p class="about-text">Honey Buy is an affordable beauty store bringing skincare, makeup, haircare, perfumes and bodycare together — all priced to be kind to your wallet. Our budget picks (Under ₹149 / ₹249 / ₹449) make it easy to glow without overspending.</p>`;
+  } else if(kind==="wishlist"){
+    const items = Object.keys(state.wish).map(id=>PRODUCTS.find(p=>p.id==id)).filter(Boolean);
+    panel.innerHTML = `<button class="close" onclick="closePanel()">✕</button><h3>Your Wishlist</h3>` +
+      (items.length ? items.map(p=>`<div class="pline"><span>${p.name} — ₹${p.price}</span><button onclick="toggleWish(${p.id});openPanel('wishlist')">Remove</button></div>`).join("")
+      : `<p class="empty">Nothing saved yet — tap the heart on a product.</p>`);
+  } else if(kind==="cart"){
+    const entries = Object.entries(state.cart).map(([id,qty])=>({p:PRODUCTS.find(x=>x.id==id),qty})).filter(e=>e.p);
+    const total = entries.reduce((s,e)=>s+e.p.price*e.qty,0);
+    panel.innerHTML = `<button class="close" onclick="closePanel()">✕</button><h3>Your Cart</h3>` +
+      (entries.length ? entries.map(e=>`<div class="pline"><span>${e.p.name} × ${e.qty}</span><button onclick="removeCart(${e.p.id})">Remove</button></div>`).join("") +
+      `<div class="total"><span>Total</span><span>₹${total}</span></div>
+      <button class="checkout-btn" onclick="checkout(${total})">Checkout</button>`
+      : `<p class="empty">Your cart is empty — go add something pretty.</p>`);
+  }
+  document.getElementById("overlay").classList.add("show");
+}
+function removeCart(id){ delete state.cart[id]; updateBadges(); openPanel('cart'); }
+function closePanel(){ document.getElementById("overlay").classList.remove("show"); }
+function checkout(total){ alert(`Order placed! Total ₹${total}. Thank you for shopping with Honey Buy 🩷`); state.cart={}; updateBadges(); closePanel(); }
+
+buildNav();
+render();
+</script>
+</body>
+</html>
